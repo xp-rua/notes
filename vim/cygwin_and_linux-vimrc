@@ -145,7 +145,7 @@ func! RunCode()
         exec "ter ++shell clang % -o %< ; ./%<"
     elseif &filetype == 'java'
         " if JavaRun is installed and is has src folder
-        if exists('*JavaRun') && fnamemodify(getcwd(), ':t') == "src"
+        if exists(':JavaRun') && fnamemodify(getcwd(), ':t') == "src"
             exec "JavaRun"
         " no JavaRun
         else
@@ -234,7 +234,7 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
-if exists('*CocInfo')
+if(filereadable($HOME . "/.vim/plugged/coc.nvim/autoload/coc.vim" ))
 "================================================
 "" COC settings
 "================================================
