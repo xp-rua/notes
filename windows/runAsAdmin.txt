@@ -1,0 +1,8 @@
+# from powershell:
+Start-Process powershell -verb runAs
+
+# from cmd:
+powershell "Start-Process powershell -verb runAs"
+
+# trustlevel
+runas /trustlevel:0x20000 "busybox64 sh"
