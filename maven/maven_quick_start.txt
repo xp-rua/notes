@@ -96,3 +96,4 @@ java -jar target/gs-maven-0.1.0.jar
 # Insall to local dependency repository for another project to read
 maven install
 
+ref: https://spring.io/guides/gs/maven/
