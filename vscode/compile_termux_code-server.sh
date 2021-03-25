@@ -16,7 +16,7 @@
 #============================
 ## step2, pack to deb file
 version=3.9.1
-output=~/code-server_$version.deb
+output=~/code-server_aarch64_termux_$version.deb
     rm -rf ~/fakeroot
 ### make a dir, let's assume it fakeroot
     mkdir ~/fakeroot
