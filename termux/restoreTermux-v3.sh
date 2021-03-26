@@ -77,6 +77,8 @@ cleanHistoryAndCache(){
         clean $jdtCacheDir/jdt_ws_*
         rm -rf $jdtCacheDir/jdt_ws_*
     fi
+    # clean git ssh
+    rm -rf ~/.git* ~/.ssh
 }
 
 # clean all but keep core functions, get 'rm' alike effect
