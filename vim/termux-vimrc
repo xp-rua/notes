@@ -11,6 +11,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'yggdroot/indentline'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'godlygeek/tabular'
 
