@@ -1,6 +1,20 @@
 
 ## Generate
-    mvn archetype:generate  
+	# interactive
+    mvn archetype:generate
+    
+    # not interactive
+    #mvn archetype:generate 
+	#    -DgroupId={project-packaging}
+	#    -DartifactId={project-name}
+	#    -DarchetypeArtifactId={maven-template} 
+	#    -DinteractiveMode=false
+
+	mvn archetype:generate \
+		-DgroupId=com.zongou \
+		-DartifactId=myproject \
+		-DarchetypeArtifactId=maven-archetype-quickstart \
+		-DinteractiveMode=false  
 ## use jdk6
 ```xml
 <properties>
@@ -50,3 +64,6 @@
     </plugins>
 </build>
 ```
+
+## references:
+	ref: https://spring.io/guides/gs/maven/
