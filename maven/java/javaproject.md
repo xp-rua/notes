@@ -1,7 +1,7 @@
 
 ## Generate
     mvn archetype:generate  
-## add properties
+## use jdk6
 ```xml
 <properties>
   <maven.compiler.source>1.6</maven.compiler.source>
