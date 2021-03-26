@@ -74,7 +74,7 @@ cleanHistoryAndCache(){
     fi
     jdtCacheDir=$termuxRoot"/files/home/.config/coc/extensions/coc-java-data"
     if [ -d $jdtCacheDir/jdt_ws_* ]; then
-        ls $jdtCacheDir/jdt_ws_*
+        clean $jdtCacheDir/jdt_ws_*
         rm -rf $jdtCacheDir/jdt_ws_*
     fi
 }
@@ -113,7 +113,7 @@ backup(){
     # check if backupDir exists
     checkBackupDirExsits
 
-    # cleanHistoryAndCache
+    cleanHistoryAndCache
     echo "making backup..."
     cd $termuxRoot/files
     tar $VERBOSE -czf $backupDir/$2 ./home ./usr
