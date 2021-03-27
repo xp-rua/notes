@@ -23,9 +23,6 @@ output=~/code-server_aarch64_termux_$version.deb
 
 ### copy and order the compiled program data into it
     cd ~/fakeroot
-    # copy command
-    mkdir -p data/data/com.termux/files/usr/bin/
-    cp $PREFIX/bin/code-server data/data/com.termux/files/usr/bin/
 
     # mkdir -p data/data/com.termux/files/home/.config
     # cp -r ~/.config/yarn/ data/data/com.termux/files/home/.config/
@@ -39,9 +36,9 @@ if [ ! -d DEBIAN ];then
   mkdir DEBIAN 
 fi
 chmod 755 DEBIAN
+
 ### create a 'control' file or copy from elsewhere
-cat > DEBIAN/control \
-<< EOF
+cat > DEBIAN/control <<EOF
 Package: code-server
 Version: $version
 Section: devel
@@ -51,6 +48,16 @@ Maintainer: Anmol Sethi <hi@nhooyr.io>
 Vendor: Coder
 Homepage: https://github.com/zongou/code-server-termux
 Description: Run VS Code in the browser, packed by zongou.
+EOF
+
+# postinst
+cat > DEBIAN/postinst <<EOF
+ln -s $PREFIX/lib/node_modules/code-server/out/node $PREFIX/bin/code-server
+EOF
+
+# postrm
+cat > DEBIAN/postrm <<EOF
+rm $PREFIX/bin/code-server
 EOF
 ### make a 'md5sum' file, this step is not necessarily
 #    md5sum $(find usr -type f) > DEBIAN/md5sums
