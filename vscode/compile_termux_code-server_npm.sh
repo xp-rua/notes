@@ -31,8 +31,8 @@ output=~/code-server_aarch64_termux_$version.deb
     # cp -r ~/.config/yarn/ data/data/com.termux/files/home/.config/
 
     # copy binaries
-    mkdir -p data/data/com.termux/files/usr/lib/
-    cp -r $PREFIX/lib/node_modules/code-server data/data/com.termux/files/usr/lib/node_modules/
+    mkdir -p data/data/com.termux/files/usr/lib/node_modules/
+    cp -r $PREFIX/lib/node_modules/code-server/ data/data/com.termux/files/usr/lib/node_modules/code-server
 
 ### create 'DEBIAN' folder and 'control', 'md5sums' files
 if [ ! -d DEBIAN ];then
