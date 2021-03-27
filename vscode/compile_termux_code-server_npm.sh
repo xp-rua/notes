@@ -7,7 +7,7 @@
 ### Install dependencies, including python, nodejs
     pkg install -y python nodejs git
 ### use Alibaba agent to speed up downloading if in CN
-	npm config set registry https://registry.npm.taobao.org
+    npm config set registry https://registry.npm.taobao.org
 ### Install code-server, this step will take a while
     npm i code-server -g
 ### test code-server
@@ -35,8 +35,6 @@ output=~/code-server_aarch64_termux_$version.deb
 if [ ! -d DEBIAN ];then
   mkdir DEBIAN 
 fi
-chmod 755 DEBIAN
-
 ### create a 'control' file or copy from elsewhere
 cat > DEBIAN/control <<EOF
 Package: code-server
@@ -52,13 +50,18 @@ EOF
 
 # postinst
 cat > DEBIAN/postinst <<EOF
-ln -s $PREFIX/lib/node_modules/code-server/out/node $PREFIX/bin/code-server
+ln -s $PREFIX/lib/node_modules/code-server/out/node/entry.js $PREFIX/bin/code-server
 EOF
 
 # postrm
 cat > DEBIAN/postrm <<EOF
 rm $PREFIX/bin/code-server
 EOF
+
+# empower permission
+chmod 755 DEBIAN
+chmod 775 DEBIAN/postinst DEBIAN/postrm
+
 ### make a 'md5sum' file, this step is not necessarily
 #    md5sum $(find usr -type f) > DEBIAN/md5sums
 
